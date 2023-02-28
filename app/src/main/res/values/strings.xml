@@ -4,4 +4,6 @@
     <string name="fan_low">1</string>
     <string name="fan_medium">2</string>
     <string name="fan_high">3</string>
+    <string name="plus_bt">Increment</string>
+    <string name="minus_bt">Decrement</string>
 </resources>
