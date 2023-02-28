@@ -1,10 +1,9 @@
-package com.example.customviewproject
+package com.example.customviewproject.iterator_game_view
 
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
-import kotlin.math.min
 
 class CounterView @JvmOverloads constructor(
     context: Context,

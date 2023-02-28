@@ -1,9 +1,10 @@
-package com.example.customviewproject
+package com.example.customviewproject.example_view
 
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
+import com.example.customviewproject.R
 import kotlin.math.cos
 import kotlin.math.min
 import kotlin.math.sin

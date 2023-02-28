@@ -1,4 +1,6 @@
-package com.example.customviewproject
+package com.example.customviewproject.example_view
+
+import com.example.customviewproject.R
 
 enum class FanSpeed(val label: Int) {
     OFF(R.string.fan_off),
