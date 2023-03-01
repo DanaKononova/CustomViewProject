@@ -32,6 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/delimeter_view"
-        custom:startValue="8" />
+        custom:startValue="8"
+        custom:state="true"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

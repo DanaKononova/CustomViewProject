@@ -8,23 +8,18 @@ import com.example.customviewproject.homework_view.IteratorView
 
 class MainActivity : AppCompatActivity() {
 
-    companion object {
-        var buttonText = ""
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var button = findViewById<Button>(R.id.button)
-        var text: String
-        var count = 1
-        buttonText = getString(R.string.plus_bt)
+        val button = findViewById<Button>(R.id.button)
+        button.text = getString(R.string.plus_bt)
+        val iterator = findViewById<IteratorView>(R.id.iterator)
         button.setOnClickListener {
-            text = if (count % 2 == 0) getString(R.string.plus_bt) else getString(R.string.minus_bt)
-            button.text = text
-            buttonText = text
-            count++
+            if (button.text == getString(R.string.plus_bt)){
+                button.text = getString(R.string.minus_bt)
+            }else button.text = getString(R.string.plus_bt)
+            iterator.onStateChange()
         }
     }
 }

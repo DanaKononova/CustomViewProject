@@ -19,7 +19,7 @@ class IteratorView @JvmOverloads constructor(
     private var fanIterator = FanIterator(0, 0, 1)
     private var startValue = 0
     private var circlePosition = PointF(0f, 0f)
-    private var buttonText = MainActivity.buttonText
+    private var state: Boolean
 
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
@@ -28,16 +28,20 @@ class IteratorView @JvmOverloads constructor(
         typeface = Typeface.create("", Typeface.BOLD)
     }
 
+    public fun onStateChange(){
+        state = !state
+    }
+
     override fun onSizeChanged(width: Int, height: Int, oldWidth: Int, oldHeight: Int) {
         radius = (width / 10).toFloat()
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        if (buttonText == context.getString(R.string.plus_bt)) {
-            if (fanIterator.count < 10) {
+        if (state) {
+            if (fanIterator.count <= 10) {
                 paint.color = Color.GREEN
-            } else if (fanIterator.count < 20) {
+            } else if (fanIterator.count <= 20) {
                 paint.color = Color.YELLOW
             } else {
                 paint.color = Color.RED
@@ -73,6 +77,7 @@ class IteratorView @JvmOverloads constructor(
         ).apply {
             try {
                 startValue = getInteger(R.styleable.IteratorView_startValue, 0)
+                state = getBoolean(R.styleable.IteratorView_state, true)
             } finally {
                 recycle()
             }
@@ -82,8 +87,7 @@ class IteratorView @JvmOverloads constructor(
     override fun performClick(): Boolean {
         if (super.performClick()) return true
 
-        buttonText = MainActivity.buttonText
-        if (buttonText == context.getString(R.string.plus_bt)) fanIterator.operation = 1
+        if (state) fanIterator.operation = 1
         else fanIterator.operation = -1
         contentDescription = fanIterator.next().toString()
 
