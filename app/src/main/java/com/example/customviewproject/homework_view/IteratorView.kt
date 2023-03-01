@@ -28,19 +28,19 @@ class IteratorView @JvmOverloads constructor(
         typeface = Typeface.create("", Typeface.BOLD)
     }
 
-    public fun onStateChange(){
+    fun onStateChange(){
         state = !state
     }
 
     override fun onSizeChanged(width: Int, height: Int, oldWidth: Int, oldHeight: Int) {
-        radius = (width / 10).toFloat()
+        radius = (width / 4).toFloat()
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         if (state) {
             if (fanIterator.count <= 10) {
-                paint.color = Color.GREEN
+                paint.color = Color.MAGENTA
             } else if (fanIterator.count <= 20) {
                 paint.color = Color.YELLOW
             } else {
@@ -50,7 +50,7 @@ class IteratorView @JvmOverloads constructor(
             else if (fanIterator.count == 20) radius *= 1.3f
         } else {
             if (fanIterator.count < 10) {
-                paint.color = Color.GREEN
+                paint.color = Color.MAGENTA
             } else if (fanIterator.count < 20) {
                 paint.color = Color.YELLOW
             } else {
